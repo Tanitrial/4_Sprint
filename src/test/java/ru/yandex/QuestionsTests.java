@@ -1,28 +1,22 @@
 package ru.yandex;
 
-
 import ru.yandex.pageObject.MainPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-
 @RunWith(Parameterized.class)
 public class QuestionsTests extends BaseTest {
-
-
     private static int index;
     private static String question;
     private static String answer;
-
 
     public QuestionsTests(int index, String question, String answer) {
         QuestionsTests.index = index;
         QuestionsTests.question = question;
         QuestionsTests.answer = answer;
     }
-
 
     @Parameterized.Parameters
     public static Object[][] getCredentials(){
@@ -38,20 +32,18 @@ public class QuestionsTests extends BaseTest {
         };
     }
 
-
     @Test
-    public void checkClickQuestion_expectTextIsDisplayed() {
+    public void checkClickQuestionExpectTextIsDisplayed() {
         super.implicitlyWait(3);
-
 
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
         String actualQuestion = mainPage.clickQuestion(index);
         String actualAnswer = mainPage.answerDisplayed(index);
 
-
         Assert.assertEquals("Check that we click on right question", actualQuestion, question);
         Assert.assertEquals("Check that we see right answer", actualAnswer, answer);
-        driver.quit();
     }
 }
+
+  
