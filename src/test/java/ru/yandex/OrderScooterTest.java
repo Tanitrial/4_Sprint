@@ -47,7 +47,7 @@ public class OrderScooterTest extends BaseTest {
     }
 
     @Test
-    public void checkOrderScooterValidData_expectScooterIsOrdered() {
+    public void checkOrderScooterValidDataExpectScooterIsOrdered() {
         super.implicitlyWait(3);
 
         MainPage mainPage = new MainPage(driver);
